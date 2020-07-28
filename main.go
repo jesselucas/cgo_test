@@ -1,6 +1,7 @@
 package main
 
-// #include "./libadd/add.h"
+// #cgo LDFLAGS: -L${SRCDIR}/libadd
+// #include "add.h"
 import "C"
 import (
 	"fmt"
@@ -14,6 +15,6 @@ func main() {}
 //export AddInt
 func AddInt(n1 C.int, n2 C.int) C.int {
 	sum := C.add(n1, n2)
-	fmt.Println("%d", sum)
+	fmt.Printf("%d\n", sum)
 	return sum
 }
